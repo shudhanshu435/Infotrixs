@@ -28,18 +28,17 @@ def add():
 
 def view():
     df = pd.read_csv('contact.csv')
-    print(df)
+    print(df.to_string())
 
 
 def search():
     search_student = input("Enter the name of student? ")
     df = pd.read_csv('contact.csv')
-
-    df = df[df['Name'].str.contains(search_student)]
+    df = df[df['Name'].str.lower().str.contains(search_student.lower())]
     if df.empty:
         print("Not found ")
     else:
-        print(df)
+        print(df.to_string())
 
 
 def delete():
