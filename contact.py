@@ -32,7 +32,7 @@ def view():
 
 
 def search():
-    search_student = input("Enter the name of student? ")
+    search_student = input("Enter the name of student.? ")
     df = pd.read_csv('contact.csv')
     df = df[df['Name'].str.lower().str.contains(search_student.lower())]
     if df.empty:
